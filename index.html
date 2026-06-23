@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skybound Checkpoint Platformer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="hud" aria-live="polite">
+      <h1>Skybound Checkpoint Platformer</h1>
+      <p>
+        Cat 1: <kbd>←</kbd><kbd>→</kbd> / <kbd>A</kbd><kbd>D</kbd> + <kbd>↑</kbd>/<kbd>W</kbd>/<kbd>Space</kbd>
+        &nbsp;•&nbsp;
+        Cat 2: <kbd>J</kbd><kbd>L</kbd> + <kbd>I</kbd>
+      </p>
+      <div class="stats">
+        <span id="heightLabel">Height: 0 m</span>
+        <span id="checkpointLabel">Checkpoint: Ground</span>
+      </div>
+      <div class="players-hud">
+        <div class="player-card" id="p1Card">
+          <strong>Cat 1</strong>
+          <span id="p1BreedLabel">Breed: Tabby</span>
+          <span id="p1CoinsLabel">Coins: 0</span>
+          <span id="p1LivesIcons" class="lives-icons" aria-label="Cat 1 lives"></span>
+        </div>
+        <div class="player-card" id="p2Card">
+          <strong>Cat 2</strong>
+          <span id="p2BreedLabel">Breed: Siamese</span>
+          <span id="p2CoinsLabel">Coins: 0</span>
+          <span id="p2LivesIcons" class="lives-icons" aria-label="Cat 2 lives"></span>
+        </div>
+      </div>
+    </header>
+
+    <div class="canvas-wrap">
+      <canvas id="gameCanvas" width="960" height="540" role="img" aria-label="A platformer game where you climb toward space"></canvas>
+      <section id="startMenu" class="start-menu" aria-label="Choose your cat">
+        <h2>Choose Your Cats</h2>
+        <p id="startMessage">Pick breeds and begin your 2-player climb. Each cat has 9 lives.</p>
+        <div class="chooser-grid">
+          <div class="chooser-col">
+            <label for="breedSelectP1">Cat 1 breed</label>
+            <select id="breedSelectP1">
+              <option value="tabby">Tabby</option>
+              <option value="siamese">Siamese</option>
+              <option value="bombay">Bombay</option>
+              <option value="calico">Calico</option>
+              <option value="ragdoll">Ragdoll</option>
+            </select>
+          </div>
+          <div class="chooser-col">
+            <label for="breedSelectP2">Cat 2 breed</label>
+            <select id="breedSelectP2">
+              <option value="siamese">Siamese</option>
+              <option value="tabby">Tabby</option>
+              <option value="bombay">Bombay</option>
+              <option value="calico">Calico</option>
+              <option value="ragdoll">Ragdoll</option>
+            </select>
+          </div>
+        </div>
+        <button id="startButton" type="button">Start Climb</button>
+      </section>
+
+      <section id="deathScreen" class="death-screen" hidden aria-label="Game over">
+        <h2>All Cats Are Out Of Lives</h2>
+        <p id="deathMessage">Choose breeds and try another run.</p>
+        <button id="restartButton" type="button">Restart Run</button>
+      </section>
+    </div>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
